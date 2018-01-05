@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NPMDemo</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="tuition.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Sidebar</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li class="active"><a href='http://Localhost:8080/ServletDemo4/home.html'>Home</a></li>
+                    <li><a href="http://Localhost:8080/ServletDemo4/Creatform.html">Create Reimburse</a></li>
+                    <li><a href="http://localhost:8080//ServletDemo4/view.html">View Reimbursements</a>
+                               <!-- <li><!-- Link with dropdown items -->
+                                    <a href="#homeSubmenu" aria-expanded="true">View Forms</a>
+                                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                                        <li><a href="#">Pending</a></li>
+                                        <li><a href="#">Managing</a></li>
+                                        <li><a href="#">Approved/Rejected</a></li>
+                                    </ul>-->
+                    
+                                <li><a href="http://localhost:8080/ServletDemo4/Logout">Logout</a></li>
+                                <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-8">
+            <div class="container">
+  			<div class="jumbotron">
+    			<h1>Welcome to Benco TRMS</h1> 
+    				<p>Here at Benco we value your education as an employee and would love to assist you
+    				 </p> 
+  			</div>
+</div>
+		<div class="text-center">
+            <img class="img-circle " src="tuitionmoney.jpg" width="550" height="400" >
+            </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+    <script>
+    $(document).ready(function () {
+        
+
+                $('#sidebar').toggleClass('active');
+
+        
+        });
+    $(document).on("submit", "#somebutton", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+        $.get("someservlet", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+            $("#somediv").text(responseText);           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+        });
+    });
+    </script>
+</html>

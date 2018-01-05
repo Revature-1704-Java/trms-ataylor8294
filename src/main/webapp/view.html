@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="tuition.css">
+</head>
+<body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Sidebar</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li class="active"><a href='http://Localhost:8080/ServletDemo4/home.html'>Home</a></li>
+                    <li><a href="http://Localhost:8080/ServletDemo4/Creatform.html">Create Reimburse</a></li>
+                    <li><a href="http://localhost:8080//ServletDemo4/view.html">View Reimbursements</a>
+                                <li><!-- Link with dropdown items -->
+                                    <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">View Forms</a>
+                                    <ul class="collapse list-unstyled dropdown-menu" id="homeSubmenu">
+                                        <li><a href="http://localhost:8080/ServletDemo4/view.html">Pending</a></li>
+                                        <li><a href="#">Managing</a></li>
+                                        <li><a href="#">Approved/Rejected</a></li>
+                                    </ul>
+                    			
+                                <li><a href="http://localhost:8080/ServletDemo4/Logout">Logout</a></li>
+                </ul>
+            </nav>
+	<div class="col-md-8">
+	<h1 id="list" align="center"></h1>
+            <div class="container">
+				<ul id ="lists" class="pagination">
+
+</ul>
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+function parsehtml(x){
+	console.log(x);
+	var result ="";
+	if (x==null){
+		document.getElementById("list").innerHTML= "You have no pending reimbursements";
+	}
+	else{
+		console.log(x);
+			/*result+="<table class='table'>";
+	        result+= "<table border='1'>"
+	        for (a in x) {
+	            result += "<tr><td>" + a + "</td><td>" +x[a] +"</td></tr>";
+	        }
+	        result += "</table>";       
+	        document.getElementById("list").innerHTML = result;
+	        */
+		  
+	}
+	
+}
+function loadDoc() {
+
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.responseType = 'json';
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+			var x = this.response;
+			console.log(x);
+			parsehtml(x);
+			
+	    }
+	  };
+	  xhttp.open("GET", "CreateView", true);
+	  //"http://localhost:8080/ServletDemo3/
+	  xhttp.send();
+	}
+window.onload = loadDoc;
+</script>
+</body>
+</html>

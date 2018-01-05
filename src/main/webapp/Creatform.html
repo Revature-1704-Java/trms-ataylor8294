@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NPMDemo</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="tuition.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Sidebar</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li class="active"><a href='http://localhost:8080/ServletDemo4/home.html'>Home</a></li>
+                    <li><a href="http://localhost:8080/ServletDemo4/Creatform.html">Create Reimburse</a></li>
+                    <li><a href="http://localhost:8080//ServletDemo4/view.html">View Reimbursements</a>
+                                <li><!-- Link with dropdown items -->
+                                    <a href="#homeSubmenu" aria-expanded="true">View Forms</a>
+                                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                                        <li><a href="#">Pending</a></li>
+                                        <li><a href="#">Managing</a></li>
+                                        <li><a href="#">Approved/Rejected</a></li>
+                                    </ul>
+                    
+                                <li><a href="http://localhost:8080/ServletDemo4/Logout">Logout</a></li>
+                                <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-8">
+            <div class="container">
+  			<div class="jumbotron">
+    			<h1>Welcome to Benco TRMS</h1> 
+    				<p>Here at Benco we value your education as an employee and would love to assist you
+    				 </p> 
+  			</div>
+</div>
+<h2> TRMS reimbursement form </h2>
+<form class="form-horizontal" action="CreateReimburse" method="POST">
+<div class="form-group">
+	<label class="control-label col-lg" for="location">Description:</label>
+	<input name="des" required="required" class= "form-control" type="text" placeholder="description">
+</div>
+<div class="form-group">
+	<label class="control-label col-lg" for="location">Location:</label>
+	<input required="required" class="form-control" type="text" placeholder="location" name="location">
+</div>
+<div class="form-group">
+	<label class="control-label col-lg" for="location">Cost:</label>
+	<input required="required" class="form-control" type="number" placeholder="Cost" name="cost">
+</div>
+<div class="form-group">
+<label class="control-label col-lg" for="location">Type of Class:</label>
+<select class="select" name="type">
+	<option value=1>University Courses</option>
+    <option value=2>Seminar</option>
+    <option value=3>Certification</option>
+    <option value=4>Certification Preparation</option>
+    <option value=5>Technical Training</option>
+    <option value=6>Other</option>
+</select>
+</div>
+<div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+  </div>
+<div class="form-group">
+	<input type="submit" placeholder="submit">
+</div>
+</form>
+</div>
+
+            </div>
+            <div class="col-md-1">
+     
+            </div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+    <script>
+    $(document).ready(function () {
+        
+
+                $('#sidebar').toggleClass('active');
+
+        
+        });
+    $(document).on("submit", "#somebutton", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+        $.get("someservlet", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+            $("#somediv").text(responseText);           // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+        });
+    });
+    </script>
+</html>
